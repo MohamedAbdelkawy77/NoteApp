@@ -23,16 +23,23 @@ class NoteApp extends StatelessWidget {
   const NoteApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(brightness: Brightness.light, fontFamily: "Poppins"),
-      initialRoute: SplashScreen.Id,
-      routes: {
-        Noteview.Id: (context) => Noteview(),
-        Editveiw.Id: (context) => Editveiw(),
-        SplashScreen.Id: (context) => SplashScreen(),
-        Settingview.id: (context) => Settingview()
-      },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AddNoteCubit(),
+        )
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(brightness: Brightness.light, fontFamily: "Poppins"),
+        initialRoute: SplashScreen.Id,
+        routes: {
+          Noteview.Id: (context) => Noteview(),
+          Editveiw.Id: (context) => Editveiw(),
+          SplashScreen.Id: (context) => SplashScreen(),
+          Settingview.id: (context) => Settingview()
+        },
+      ),
     );
   }
 }

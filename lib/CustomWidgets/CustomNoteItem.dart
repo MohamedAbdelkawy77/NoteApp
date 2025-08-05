@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:noteapp/CustomWidgets/CustomListTile.dart';
+import 'package:noteapp/Models/NoteModel.dart';
 import 'package:noteapp/views/EditVeiw.dart';
 
 // ignore: must_be_immutable
 class Customnoteitem extends StatelessWidget {
-  Customnoteitem({super.key, required this.themecoloritem});
-  Color themecoloritem;
+  const Customnoteitem({
+    super.key,
+    required this.noteModel,
+  });
+  final NoteModel noteModel;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -17,19 +22,22 @@ class Customnoteitem extends StatelessWidget {
         margin: EdgeInsets.only(right: 20, left: 20, top: 10, bottom: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: themecoloritem,
+          color: Colors.blueGrey,
         ),
         child: Column(
           spacing: 20,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Customlisttile(),
+            Customlisttile(
+              TextNew: noteModel.Title,
+              Descraption: noteModel.Descraption,
+            ),
             Padding(
               padding: const EdgeInsets.only(right: 24),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Text(
-                  DateTime.now().toString().split(" ").first,
+                  noteModel.dateTime.split(" ").first,
                   style: TextStyle(fontSize: 10, color: Colors.black),
                 ),
               ),

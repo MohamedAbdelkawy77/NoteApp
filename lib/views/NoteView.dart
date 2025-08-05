@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:noteapp/cubit/cubit/notes_cubit_cubit.dart';
 import 'package:noteapp/views/NoteViewbody.dart';
 
 class Noteview extends StatefulWidget {
@@ -14,26 +16,29 @@ class _NoteviewState extends State<Noteview> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Noteviewbody(),
-      // bottomNavigationBar: BottomNavigationBar(
-      //     onTap: (value) {
-      //       BarIndex = value;
-      //       setState(() {});
-      //     },
-      //     currentIndex: BarIndex,
-      //     unselectedItemColor: Colors.white,
-      //     selectedItemColor: Themecolor,
-      //     items: [
-      //       BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-      //       BottomNavigationBarItem(
-      //           icon: Icon(
-      //             Icons.calendar_month,
-      //           ),
-      //           label: "Calender"),
-      //       BottomNavigationBarItem(
-      //           icon: Icon(Icons.settings), label: "Settings"),
-      //     ]),
+    return BlocProvider(
+      create: (context) => NotesCubitCubit(),
+      child: Scaffold(
+        body: Noteviewbody(),
+        // bottomNavigationBar: BottomNavigationBar(
+        //     onTap: (value) {
+        //       BarIndex = value;
+        //       setState(() {});
+        //     },
+        //     currentIndex: BarIndex,
+        //     unselectedItemColor: Colors.white,
+        //     selectedItemColor: Themecolor,
+        //     items: [
+        //       BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+        //       BottomNavigationBarItem(
+        //           icon: Icon(
+        //             Icons.calendar_month,
+        //           ),
+        //           label: "Calender"),
+        //       BottomNavigationBarItem(
+        //           icon: Icon(Icons.settings), label: "Settings"),
+        //     ]),
+      ),
     );
   }
 }
