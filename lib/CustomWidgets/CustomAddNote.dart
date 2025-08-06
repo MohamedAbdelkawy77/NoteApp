@@ -4,6 +4,7 @@ import 'package:noteapp/CustomWidgets/CustomBotton.dart';
 import 'package:noteapp/CustomWidgets/CustomTextFeild.dart';
 import 'package:noteapp/Models/NoteModel.dart';
 import 'package:noteapp/cubit/Add_Note_cubit/add_note_cubit.dart';
+import 'package:noteapp/cubit/cubit/notes_cubit_cubit.dart';
 
 class Customaddnote extends StatefulWidget {
   const Customaddnote({super.key});
@@ -33,6 +34,8 @@ class _CustomaddnoteState extends State<Customaddnote> {
                 if (state is AddNoteFailure) {
                   print("failed");
                 } else if (state is AddNoteSuccess) {
+                  BlocProvider.of<NotesCubitCubit>(context).GetAllNotes();
+
                   print("Successful Operation!");
                 }
               },

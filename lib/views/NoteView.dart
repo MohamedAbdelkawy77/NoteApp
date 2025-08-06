@@ -16,29 +16,26 @@ class _NoteviewState extends State<Noteview> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubitCubit(),
-      child: Scaffold(
-        body: Noteviewbody(),
-        // bottomNavigationBar: BottomNavigationBar(
-        //     onTap: (value) {
-        //       BarIndex = value;
-        //       setState(() {});
-        //     },
-        //     currentIndex: BarIndex,
-        //     unselectedItemColor: Colors.white,
-        //     selectedItemColor: Themecolor,
-        //     items: [
-        //       BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        //       BottomNavigationBarItem(
-        //           icon: Icon(
-        //             Icons.calendar_month,
-        //           ),
-        //           label: "Calender"),
-        //       BottomNavigationBarItem(
-        //           icon: Icon(Icons.settings), label: "Settings"),
-        //     ]),
-      ),
+    return Scaffold(
+      body: Noteviewbody(),
+      // bottomNavigationBar: BottomNavigationBar(
+      //     onTap: (value) {
+      //       BarIndex = value;
+      //       setState(() {});
+      //     },
+      //     currentIndex: BarIndex,
+      //     unselectedItemColor: Colors.white,
+      //     selectedItemColor: Themecolor,
+      //     items: [
+      //       BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+      //       BottomNavigationBarItem(
+      //           icon: Icon(
+      //             Icons.calendar_month,
+      //           ),
+      //           label: "Calender"),
+      //       BottomNavigationBarItem(
+      //           icon: Icon(Icons.settings), label: "Settings"),
+      //     ]),
     );
   }
 }
