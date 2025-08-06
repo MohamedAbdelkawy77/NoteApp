@@ -23,7 +23,7 @@ class Custompageview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(color: Colors.white),
+        decoration: BoxDecoration(color: Colors.black),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

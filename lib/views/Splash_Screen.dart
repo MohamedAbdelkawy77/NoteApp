@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Center(
           child: Image.asset("Assets/Images/Notespurpleicon.jpg")
               .animate(onPlay: (controller) => controller.repeat())
-              .shake(hz: 5),
+              .shake(hz: 2),
         ),
       ),
     );

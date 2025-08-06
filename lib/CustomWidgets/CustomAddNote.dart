@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:noteapp/CustomWidgets/CustomBotton.dart';
 import 'package:noteapp/CustomWidgets/CustomTextFeild.dart';
+import 'package:noteapp/CustomWidgets/customColor_Listview.dart';
+import 'package:noteapp/Models/Constants.dart';
 import 'package:noteapp/Models/NoteModel.dart';
 import 'package:noteapp/cubit/Add_Note_cubit/add_note_cubit.dart';
 import 'package:noteapp/cubit/cubit/notes_cubit_cubit.dart';
@@ -45,6 +47,8 @@ class _CustomaddnoteState extends State<Customaddnote> {
                   child: Column(
                     children: [
                       TextCustomField(
+                        controller: TextEditingController(),
+                        Onchange: (p) {},
                         Str: "Title of Note",
                         OnSaved: (value) {
                           Title = value;
@@ -53,6 +57,8 @@ class _CustomaddnoteState extends State<Customaddnote> {
                         maxLines: 1,
                       ),
                       TextCustomField(
+                        controller: TextEditingController(),
+                        Onchange: (value) {},
                         Str: "Description Of Note",
                         OnSaved: (value) {
                           DescText = value;
@@ -63,6 +69,10 @@ class _CustomaddnoteState extends State<Customaddnote> {
                       SizedBox(
                         height: 100,
                       ),
+                      Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 90,
+                          child: ListViewColor()),
                       CustomButton(
                         Isloading: state is AddNoteLoading ? true : false,
                         onpressed: () {
@@ -72,7 +82,7 @@ class _CustomaddnoteState extends State<Customaddnote> {
                                 Title: Title!,
                                 Descraption: DescText!,
                                 dateTime: DateTime.now().toString(),
-                                color: 1);
+                                color: currentc);
                             BlocProvider.of<AddNoteCubit>(context)
                                 .Addnote(Note);
                             Navigator.pop(context);

@@ -8,16 +8,19 @@ class TextCustomField extends StatelessWidget {
       required this.Str,
       required this.OnSaved,
       required this.Size,
-      required this.maxLines});
+      required this.maxLines, required this.Onchange, required this.controller});
   final String Str;
   final void Function(String?)? OnSaved;
   final double Size;
   final int maxLines;
+  final void Function(String) Onchange;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 15),
       child: TextFormField(
+        controller:controller ,
         validator: (value) {
           if (value!.isEmpty) {
             return "Field Is Empty";
@@ -27,7 +30,8 @@ class TextCustomField extends StatelessWidget {
         maxLines: maxLines,
         cursorColor: Themecolor,
         onSaved: OnSaved,
-        decoration: InputDecoration(
+        onChanged: Onchange
+        ,decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(vertical: Size, horizontal: 10),
           fillColor: Colors.black,
           focusColor: Colors.black,

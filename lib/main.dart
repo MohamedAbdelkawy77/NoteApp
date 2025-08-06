@@ -3,9 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:noteapp/Models/Constants.dart';
 import 'package:noteapp/Models/NoteModel.dart';
 import 'package:noteapp/Simple_Bloc_observer.dart';
-import 'package:noteapp/cubit/Add_Note_cubit/add_note_cubit.dart';
 import 'package:noteapp/cubit/cubit/notes_cubit_cubit.dart';
-import 'package:noteapp/views/EditVeiw.dart';
 import 'package:noteapp/views/NoteView.dart';
 import 'package:noteapp/views/SettingView.dart';
 import 'package:noteapp/views/Splash_Screen.dart';
@@ -28,11 +26,10 @@ class NoteApp extends StatelessWidget {
       create: (context) => NotesCubitCubit(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(brightness: Brightness.light, fontFamily: "Poppins"),
+        theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
         initialRoute: SplashScreen.Id,
         routes: {
           Noteview.Id: (context) => Noteview(),
-          Editveiw.Id: (context) => Editveiw(),
           SplashScreen.Id: (context) => SplashScreen(),
           Settingview.id: (context) => Settingview()
         },

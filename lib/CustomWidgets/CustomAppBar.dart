@@ -63,7 +63,10 @@ class _CustomNoteAppBarState extends State<CustomNoteAppBar> {
                             "Dark",
                             style: TextStyle(color: Themecolor),
                           ),
-                          Icon(Icons.dark_mode)
+                          Icon(
+                            Icons.dark_mode,
+                            color: Themecolor,
+                          )
                         ],
                       ),
                     ),
@@ -75,7 +78,10 @@ class _CustomNoteAppBarState extends State<CustomNoteAppBar> {
                             "light",
                             style: TextStyle(color: Themecolor),
                           ),
-                          Icon(Icons.light_mode)
+                          Icon(
+                            Icons.light_mode,
+                            color: Themecolor,
+                          )
                         ],
                       ),
                     ),
@@ -90,7 +96,10 @@ class _CustomNoteAppBarState extends State<CustomNoteAppBar> {
                             "Setting",
                             style: TextStyle(color: Themecolor),
                           ),
-                          Icon(Icons.settings),
+                          Icon(
+                            Icons.settings,
+                            color: Themecolor,
+                          ),
                         ],
                       ),
                     ),

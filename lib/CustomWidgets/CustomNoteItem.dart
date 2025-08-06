@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:noteapp/CustomWidgets/CustomListTile.dart';
+import 'package:noteapp/Models/Constants.dart';
 import 'package:noteapp/Models/NoteModel.dart';
 import 'package:noteapp/views/EditVeiw.dart';
 
@@ -20,14 +21,18 @@ class _CustomnoteitemState extends State<Customnoteitem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, Editveiw.Id);
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return Editveiw(
+            noteModel: widget.noteModel,
+          );
+        }));
       },
       child: Container(
         padding: EdgeInsets.only(top: 16, bottom: 16),
         margin: EdgeInsets.only(right: 20, left: 20, top: 10, bottom: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.blueGrey,
+          color: colors[widget.noteModel.color],
         ),
         child: Column(
           spacing: 20,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:noteapp/Models/Constants.dart';
 
-class CustomSearchButton extends StatelessWidget {
+class CustomSearchButton extends StatefulWidget {
   const CustomSearchButton({
     super.key,
     required this.SearchIcon,
@@ -11,6 +11,12 @@ class CustomSearchButton extends StatelessWidget {
   });
   final IconData SearchIcon;
   final VoidCallback Onpressed;
+
+  @override
+  State<CustomSearchButton> createState() => _CustomSearchButtonState();
+}
+
+class _CustomSearchButtonState extends State<CustomSearchButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,9 +26,9 @@ class CustomSearchButton extends StatelessWidget {
         color: Themecolor,
       ),
       child: IconButton(
-          onPressed: Onpressed,
+          onPressed: widget.Onpressed,
           icon: Icon(
-            SearchIcon,
+            widget.SearchIcon,
             color: Colors.white,
           )),
     );
