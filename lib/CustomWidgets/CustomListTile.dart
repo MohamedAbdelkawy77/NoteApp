@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:noteapp/Models/Constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:noteapp/Models/NoteModel.dart';
+import 'package:noteapp/cubit/cubit/notes_cubit_cubit.dart';
 
 class Customlisttile extends StatelessWidget {
   const Customlisttile(
-      {super.key, required this.TextNew, required this.Descraption});
+      {super.key,
+      required this.TextNew,
+      required this.Descraption,
+      required this.noteModel});
   final String TextNew;
   final String Descraption;
+  final NoteModel noteModel;
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -25,7 +31,8 @@ class Customlisttile extends StatelessWidget {
       ),
       trailing: IconButton(
           onPressed: () {
-            Hive.box(BoxNote).delete(key);
+            noteModel.delete();
+            BlocProvider.of<NotesCubitCubit>(context).GetAllNotes();
           },
           icon: Icon(
             Icons.delete,

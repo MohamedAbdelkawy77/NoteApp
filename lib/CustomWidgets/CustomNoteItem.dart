@@ -4,13 +4,18 @@ import 'package:noteapp/Models/NoteModel.dart';
 import 'package:noteapp/views/EditVeiw.dart';
 
 // ignore: must_be_immutable
-class Customnoteitem extends StatelessWidget {
+class Customnoteitem extends StatefulWidget {
   const Customnoteitem({
     super.key,
     required this.noteModel,
   });
   final NoteModel noteModel;
 
+  @override
+  State<Customnoteitem> createState() => _CustomnoteitemState();
+}
+
+class _CustomnoteitemState extends State<Customnoteitem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -29,15 +34,16 @@ class Customnoteitem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Customlisttile(
-              TextNew: noteModel.Title,
-              Descraption: noteModel.Descraption,
+              TextNew: widget.noteModel.Title,
+              Descraption: widget.noteModel.Descraption,
+              noteModel: widget.noteModel,
             ),
             Padding(
               padding: const EdgeInsets.only(right: 24),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Text(
-                  noteModel.dateTime.split(" ").first,
+                  widget.noteModel.dateTime.split(" ").first,
                   style: TextStyle(fontSize: 10, color: Colors.black),
                 ),
               ),
