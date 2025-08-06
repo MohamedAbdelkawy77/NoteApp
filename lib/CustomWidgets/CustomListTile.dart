@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:noteapp/Models/Constants.dart';
 
 class Customlisttile extends StatelessWidget {
-  const Customlisttile({super.key, required this.TextNew, required this.Descraption});
+  const Customlisttile(
+      {super.key, required this.TextNew, required this.Descraption});
   final String TextNew;
   final String Descraption;
   @override
@@ -21,7 +24,9 @@ class Customlisttile extends StatelessWidget {
         ),
       ),
       trailing: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Hive.box(BoxNote).delete(key);
+          },
           icon: Icon(
             Icons.delete,
             color: Colors.black,
