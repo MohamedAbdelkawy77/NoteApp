@@ -5,6 +5,7 @@ import 'package:noteapp/CustomWidgets/CustomAppBar.dart';
 import 'package:noteapp/CustomWidgets/ListViewNote.dart';
 import 'package:noteapp/Models/Constants.dart';
 import 'package:noteapp/cubit/cubit/notes_cubit_cubit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Noteviewbody extends StatefulWidget {
   const Noteviewbody({super.key});

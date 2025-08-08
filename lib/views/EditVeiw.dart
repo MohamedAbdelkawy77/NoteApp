@@ -32,49 +32,51 @@ class _EditveiwState extends State<Editveiw> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(
-            height: 20,
-          ),
-          CustomNoteAppBar(
-            Onpressed: () {
-              widget.noteModel.Title = Title ?? widget.noteModel.Title;
-              widget.noteModel.Descraption =
-                  Description ?? widget.noteModel.Descraption;
-              widget.noteModel.color = currentc ?? widget.noteModel.color;
-              widget.noteModel.save();
-              setState(() {});
-              Navigator.pop(context);
-              BlocProvider.of<NotesCubitCubit>(context).GetAllNotes();
-            },
-            Str: "Edit",
-            SearchIcon: Icons.edit_attributes,
-          ),
-          TextCustomField(
-              controller: controller1,
-              Onchange: (val) {
-                Title = val;
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            CustomNoteAppBar(
+              Onpressed: () {
+                widget.noteModel.Title = Title ?? widget.noteModel.Title;
+                widget.noteModel.Descraption =
+                    Description ?? widget.noteModel.Descraption;
+                widget.noteModel.color = currentc ?? widget.noteModel.color;
+                widget.noteModel.save();
+                setState(() {});
+                Navigator.pop(context);
+                BlocProvider.of<NotesCubitCubit>(context).GetAllNotes();
               },
-              Str: "",
-              OnSaved: (val) {},
-              Size: 20,
-              maxLines: 1),
-          TextCustomField(
-              controller: controller2,
-              Onchange: (val) {
-                Description = val;
-                widget.noteModel.color = currentc;
-              },
-              Str: "",
-              OnSaved: (value) {},
-              Size: 60,
-              maxLines: 3),
-          Container(
-              width: MediaQuery.of(context).size.width,
-              height: 90,
-              child: ListViewColor()),
-        ],
+              Str: "Edit",
+              SearchIcon: Icons.edit_attributes,
+            ),
+            TextCustomField(
+                controller: controller1,
+                Onchange: (val) {
+                  Title = val;
+                },
+                Str: "",
+                OnSaved: (val) {},
+                Size: 20,
+                maxLines: 1),
+            TextCustomField(
+                controller: controller2,
+                Onchange: (val) {
+                  Description = val;
+                  widget.noteModel.color = currentc;
+                },
+                Str: "",
+                OnSaved: (value) {},
+                Size: 60,
+                maxLines: 3),
+            Container(
+                width: MediaQuery.of(context).size.width,
+                height: 90,
+                child: ListViewColor()),
+          ],
+        ),
       ),
     );
   }

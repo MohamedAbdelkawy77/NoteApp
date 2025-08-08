@@ -1,7 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:noteapp/Models/Constants.dart';
+import 'package:noteapp/views/NoteView.dart';
 import 'package:noteapp/views/OnboardingScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,10 +17,18 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () async {
+    GetDataofOnBoarding();
+  }
+
+  Future<void> GetDataofOnBoarding() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    Onboardingwork = prefs.getBool("Onboardingsee");
+    Timer(Duration(seconds: 2), () async {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Onboardingscreen()),
+        MaterialPageRoute(
+            builder: (context) =>
+                Onboardingwork == null ? Onboardingscreen() : Noteview()),
       );
     });
   }

@@ -49,37 +49,32 @@ class _CustomNoteAppBarState extends State<CustomNoteAppBar> {
                   ? Icon(
                       Icons.arrow_drop_up,
                       size: 25,
+                      color: Themecolor,
                     )
                   : Icon(
                       Icons.arrow_drop_down,
                       size: 25,
+                      color: Themecolor,
                     ),
               itemBuilder: (context) => [
                     PopupMenuItem(
+                      onTap: () async {
+                        await Future.delayed(Duration(milliseconds: 100));
+                        showDatePicker(
+                            context: context,
+                            firstDate: DateTime.now(),
+                            lastDate: DateTime.utc(2035));
+                        setState(() {});
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Text(
-                            "Dark",
+                            "Calender",
                             style: TextStyle(color: Themecolor),
                           ),
                           Icon(
-                            Icons.dark_mode,
-                            color: Themecolor,
-                          )
-                        ],
-                      ),
-                    ),
-                    PopupMenuItem(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(
-                            "light",
-                            style: TextStyle(color: Themecolor),
-                          ),
-                          Icon(
-                            Icons.light_mode,
+                            Icons.calendar_month,
                             color: Themecolor,
                           )
                         ],

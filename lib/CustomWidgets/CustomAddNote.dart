@@ -19,12 +19,14 @@ class _CustomaddnoteState extends State<Customaddnote> {
   GlobalKey<FormState> formkey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? Title, DescText;
-
+  TextEditingController controller1 = TextEditingController();
+  TextEditingController controller2 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+          top: MediaQuery.of(context).viewInsets.top),
       child: BlocProvider(
         create: (context) => AddNoteCubit(),
         child: Form(
@@ -47,7 +49,7 @@ class _CustomaddnoteState extends State<Customaddnote> {
                   child: Column(
                     children: [
                       TextCustomField(
-                        controller: TextEditingController(),
+                        controller: controller1,
                         Onchange: (p) {},
                         Str: "Title of Note",
                         OnSaved: (value) {
@@ -57,7 +59,7 @@ class _CustomaddnoteState extends State<Customaddnote> {
                         maxLines: 1,
                       ),
                       TextCustomField(
-                        controller: TextEditingController(),
+                        controller: controller2,
                         Onchange: (value) {},
                         Str: "Description Of Note",
                         OnSaved: (value) {
@@ -67,7 +69,7 @@ class _CustomaddnoteState extends State<Customaddnote> {
                         maxLines: 3,
                       ),
                       SizedBox(
-                        height: 100,
+                        height: 10,
                       ),
                       Container(
                           width: MediaQuery.of(context).size.width,

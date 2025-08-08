@@ -8,13 +8,13 @@ import 'package:noteapp/views/NoteView.dart';
 import 'package:noteapp/views/SettingView.dart';
 import 'package:noteapp/views/Splash_Screen.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+ 
 
 void main() async {
   await Hive.initFlutter();
   Bloc.observer = SimpleBlocObserver();
   Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox<NoteModel>(BoxNote);
-
   runApp(NoteApp());
 }
 

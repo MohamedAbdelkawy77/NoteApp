@@ -9,10 +9,11 @@ class Customregisterpage extends StatefulWidget {
       {super.key,
       required this.Str,
       required this.Onchange,
-      required this.textInputType});
+      required this.textInputType,required this.iconData});
   String Str;
   dynamic Function(dynamic) Onchange;
   TextInputType textInputType;
+  IconData iconData;
   @override
   State<Customregisterpage> createState() => _TextCustomFieldState();
 }
@@ -38,7 +39,7 @@ class _TextCustomFieldState extends State<Customregisterpage> {
                     fillColor: Themecolor,
                     focusColor: Themecolor,
                     icon: Icon(
-                      Icons.production_quantity_limits_sharp,
+                      widget.iconData,
                       color: Themecolor,
                     ),
                     hintText: widget.Str,

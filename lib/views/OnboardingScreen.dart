@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:noteapp/CustomWidgets/CustomPageView.dart';
-import 'package:noteapp/views/NoteView.dart';  
+import 'package:noteapp/views/NoteView.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 final PageController controller =
     PageController(viewportFraction: 1, keepPage: true);
 
@@ -32,7 +33,9 @@ class Onboardingscreen extends StatelessWidget {
         ImagePath: "Assets/Images/registration.png",
         TextDes: "And You GET IN App A Registration To Keep Your Notes.",
         NameButton: "GetStarted",
-        Onpreesd: () {
+        Onpreesd: () async {
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          prefs.setBool("Onboardingsee", true);
           Navigator.pushNamedAndRemoveUntil(
             context,
             Noteview.Id,
